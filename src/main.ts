@@ -1,1 +1,3 @@
-console.log("Hello World");
+import { Presenter } from "./presenter";
+
+let presenter = new Presenter();
