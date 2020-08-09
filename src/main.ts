@@ -1,4 +1,7 @@
+import { Level } from './Level'
 import { GameEvent } from './GameEvent'
+import { Player } from './Player'
+import { GameEventHandler } from './GameEventHandler'
 
 class BuffGameEvent extends GameEvent {
     public evaluate(player, level): number {
@@ -21,5 +24,31 @@ class StoryTellingGameEvent extends GameEvent {
 class ShoppingGameEvent extends GameEvent {
     public evaluate(player, level): number {
         return player.lux / player.maxLux;
+    }
+}
+
+var numOfStages: number = 2;
+var gameEventPoolsList: Array<Array<GameEvent>>;
+var level: Level = new Level(0, 0);
+var player: Player;
+var gameEventHandler: GameEventHandler = new GameEventHandler();
+
+gameEventPoolsList = []
+for (let i = 0; i < numOfStages; i++) {
+    gameEventPoolsList.push(Array<GameEvent>());
+    switch (i) {
+        case 0: {
+            gameEventPoolsList[i].push(new BuffGameEvent("buff", 0))
+            gameEventPoolsList[i].push(new NewItemGameEvent("newItem", 1))
+            gameEventPoolsList[i].push(new ShoppingGameEvent("shop", 2))
+            break;
+        }
+        case 1: {
+            gameEventPoolsList[i].push(new BuffGameEvent("buff", 0))
+            gameEventPoolsList[i].push(new NewItemGameEvent("newItem", 1))
+            gameEventPoolsList[i].push(new ShoppingGameEvent("shop", 2))
+            gameEventPoolsList[i].push(new StoryTellingGameEvent("story", 3))
+            break;
+        }
     }
 }
