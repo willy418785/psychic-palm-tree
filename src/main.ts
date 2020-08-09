@@ -52,3 +52,19 @@ for (let i = 0; i < numOfStages; i++) {
         }
     }
 }
+
+document.getElementById("enter-button").addEventListener("click", formPlayer);
+function formPlayer(): void {
+    let hp: number = (document.getElementById("hp-input") as HTMLInputElement).valueAsNumber;
+    let def: number = (document.getElementById("def-input") as HTMLInputElement).valueAsNumber;
+    let atk: number = (document.getElementById("atk-input") as HTMLInputElement).valueAsNumber;
+    let lux: number = (document.getElementById("lux-input") as HTMLInputElement).valueAsNumber;
+    player = new Player(hp, atk, def, lux)
+}
+document.getElementById("request-button").addEventListener("click", requestForGameEvent);
+function requestForGameEvent(): void {
+    let epi = gameEventHandler.handleRequestForGameEvent(player, level, gameEventPoolsList);
+    console.log(epi.output());
+}
+
+
