@@ -1,14 +1,14 @@
 import { View } from "./view";
-import { Level } from "./Level";
-import { Player } from "./Player";
-import { GameEventHandler } from "./GameEventHandler";
-import { GameEvent } from "./GameEvent";
+import { Level } from "./model/Level";
+import { Player } from "./model/Player";
+import { GameEventHandler } from "./model/GameEventHandler";
+import { GameEvent } from "./model/GameEvent";
 import {
   BuffGameEvent,
   NewItemGameEvent,
   StoryTellingGameEvent,
   ShoppingGameEvent,
-} from "./GameEvents";
+} from "./model/GameEvents";
 
 export class Presenter {
   view: View;
