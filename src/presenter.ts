@@ -64,15 +64,14 @@ export class Presenter {
     let lux: number = (document.getElementById("lux-input") as HTMLInputElement).valueAsNumber;
 
     this.player = new Player(hp, atk, def, lux);
+  }
 
+  requestForGameEvent() {
     this.epi = this.gameEventHandler.handleRequestForGameEvent(
       this.player,
       this.level,
       this.gameEventPoolsList
     );
-  }
-
-  requestForGameEvent() {
     console.log(this.epi.output());
   }
 }
