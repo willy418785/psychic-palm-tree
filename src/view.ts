@@ -43,4 +43,15 @@ export class View {
       self.presenter.formPlayer();
     }
   }
+
+  displayKeystroke(keystroke: string) {
+    let container: HTMLElement = document.getElementById("keystroke_display");
+    while (container.lastChild) {
+      container.removeChild(container.lastChild);
+    }
+
+    let a = document.createElement("a");
+    a.text = keystroke;
+    container.appendChild(a);
+  }
 }
