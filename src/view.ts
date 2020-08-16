@@ -27,7 +27,7 @@ export class View {
       let now: number = new Date().getTime();
       self.upTime = now;
 
-      self.presenter.userInput(self.downTime, self.upTime);
+      self.presenter.keystrokeInputed(self.downTime, self.upTime);
     }
   }
 

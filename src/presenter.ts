@@ -44,7 +44,7 @@ export class Presenter {
     this.view = new View(this);
   }
 
-  userInput(start, end): never {
+  keystrokeInputed(start, end): never {
     throw new Error("not Implemented");
   }
 
