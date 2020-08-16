@@ -9,6 +9,7 @@ import {
   StoryTellingGameEvent,
   ShoppingGameEvent,
 } from "./model/GameEvents";
+import { KeystrokeHandler } from "./model/keystrokeHandler";
 
 export class Presenter {
   view: View;
@@ -17,6 +18,7 @@ export class Presenter {
   gameEventHandler: GameEventHandler;
   gameEventPoolsList: Array<Array<GameEvent>>;
   level: Level;
+  keystrokeHandler: KeystrokeHandler;
   constructor() {
     var numOfStages: number = 2;
     this.level = new Level(0, 0);
@@ -41,11 +43,18 @@ export class Presenter {
         }
       }
     }
+
+    this.keystrokeHandler = new KeystrokeHandler();
+
     this.view = new View(this);
   }
 
-  keystrokeInputed(start, end): never {
-    throw new Error("not Implemented");
+  keystrokeInputed(start, end) {
+    let time_diff = end - start;
+    console.log(time_diff); // for debug
+
+    const keystroke: string = this.keystrokeHandler.newStroke(time_diff);
+    this.view.displayKeystroke(keystroke);
   }
 
   formPlayer() {
