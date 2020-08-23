@@ -1,11 +1,11 @@
 .blink_1,
 .blink_2 {
     background-color: darkcyan;
-    width: 200px;
+    width: 50px;
     height: 50px;
 }
 .blink_1 {
-    animation: blinker 0.6s linear infinite;
+    animation: blinker 0.5s linear infinite;
 }
 .blink_2 {
     animation: blinker 1.2s linear infinite;
@@ -13,6 +13,6 @@
 
 @keyframes blinker {
     50% {
-        width: 0;
+        opacity: 0;
     }
 }
